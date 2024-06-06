@@ -1,0 +1,10 @@
+input:invalid {
+    border-color: red;
+}
+.error {
+    color: red;
+}
+input.valid {
+    background-color: #18ed4a;
+}
+

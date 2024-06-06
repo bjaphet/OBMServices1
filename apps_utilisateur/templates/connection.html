@@ -1,0 +1,105 @@
+{% extends 'herite.html' %}
+{% load static %}
+
+{% block titre %}
+    Connection au compte
+{% endblock titre %}
+{% block coprs %}
+<div class="col-lg-6">
+    <div class="fxt-content">
+        <!-- Message d'erreur -->
+        {% if messages %}
+        {% for message in messages  %}
+                <h3><strong style="color: rgb(96, 32, 32);"> {{message}}</strong></h3>
+        {% endfor %}
+        {% endif %}
+        <h2>Connection au compte</h2>
+       
+        <div class="fxt-form">
+            <form method="POST" novalidate>
+                <div class="div">
+                    {% csrf_token %}
+                  
+                </div>
+                <div class="form-group">
+                    <div class="fxt-transformY-50 fxt-transition-delay-1">
+                        
+                        {% if form.username.errors %}
+                        {% for error in form.username.errors %}
+                            <small class="text-danger">{{error}}</small>
+                        {% endfor %}
+                    {% endif %}
+                    {{form.username}}
+                        <!-- <input type="text" id="text" class="form-control" name="username" placeholder="Nom d'utilisateur" required="required"> -->
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="fxt-transformY-50 fxt-transition-delay-2">
+                       
+                        {% if form.pwd.errors %}
+                        {% for error in form.pwd.errors %}
+                            <small class="text-danger">{{error}}</small>
+                        {% endfor %}
+                    {% endif %}
+                        {{form.pwd}}
+                        <!-- <input id="password" type="password" class="form-control" name="password" placeholder="********" required="required">-->
+                        <!-- <i toggle="#password" class="fa fa-fw fa-eye toggle-password field-icon"></i>  -->
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="fxt-transformY-50 fxt-transition-delay-3">
+                        <div class="fxt-checkbox-area">
+                            <div class="checkbox">
+                                <input id="checkbox1" type="checkbox">
+                            </div>
+                            <a href="forgot-password-9.html" class="switcher-text">Mot de passe oublié ?</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="fxt-transformY-50 fxt-transition-delay-4">
+                        <button type="submit" class="fxt-btn-fill">Se connecter</button>
+                    </div>
+                </div>
+            </form>
+            {% if form.errors %}
+        <ul>
+            {% for field in form %}
+                {% for error in field.errors %}
+                    <li>{{ error }}</li>
+                {% endfor %}
+            {% endfor %}
+            {% for error in form.non_field_errors %}
+                <li>{{ error }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+        </div>
+        <!-- <div class="fxt-footer">
+            <div class="fxt-transformY-50 fxt-transition-delay-9">
+                <p>Vous n'avez pas encore de compte?<a href="{% url 'creation' %}" class="switcher-text2 inline-text">Créer</a></p>
+            </div>
+        </div> -->
+    </div>
+</div>
+{% endblock coprs %}
+
+
+{% block script %}
+<script>
+        $(document).ready(function(){
+    $('input').keyup(function(){
+        let textSaisi=$(this).val();
+        if(textSaisi ==""){
+            if(!$(this).hasClass('is-invalid')){
+                $(this).addClass('is-invalid');
+            }
+        }
+        else{
+            $(this).removerClass('is-invalid')
+        }
+    })
+   
+        });
+</script>
+{% endblock script %}

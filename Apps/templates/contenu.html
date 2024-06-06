@@ -1,0 +1,104 @@
+{% load static %}
+
+{% block contenu %}
+
+
+<div class="page-wrapper">
+    <div class="page-breadcrumb bg-white">
+        <div class="row align-items-center">
+            <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                <h4 class="page-title">Tableau de Bord</h4>
+            </div>
+            <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+                <div class="d-md-flex">
+                    <ol class="breadcrumb ms-auto">
+                        <li><a href="{% url 'ajout-employer' %}" class="fw-normal">Ajoutez des employer</a></li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="container-fluid">
+
+    {% block espace_quantit %}
+    {% include "espace_quantité.html" %}
+    {% endblock espace_quantit %}
+    
+        <div class="row">
+            <div class="col-md-12 col-lg-12 col-sm-12">
+                <div class="white-box">
+                    <div class="d-md-flex mb-3">
+                        <h3 class="box-title mb-0">Liste des Employés</h3>
+                    </div>
+                    <div class="table-responsive">
+                        
+                        <table class="table no-wrap">
+                            <thead>
+                                <tr>
+                                    <th class="border-top-0">ID</th>
+                                    <th class="border-top-0">Nom</th>
+                                    <th class="border-top-0">Prénom(s)</th>
+                                    <th class="border-top-0">Fonction</th>
+                                    <th class="border-top-0">Quartier</th>
+                                    <th class="border-top-0">Contact</th>
+                                    <th class="border-top-0">Action</th>
+                                </tr>
+                            </thead>
+                            {% for n in donnees %}
+                            <tbody>
+                                
+                                <tr>
+                                    <td> <span class="text-primary">{{n.id}} </span></td>
+                                    <td class="txt-oflo">{{n.nom}}</td>
+                                    <td><span class="text-success">{{n.prenom}}</span></td>
+                                    <td class="txt-oflo">{{n.fonction}}</td>
+                                    <td class="txt-oflo">{{n.quartier}}</td>
+                                    <td><span class="text-success">{{n.contact}}</span></td>
+                                    <td>  <a href=" {% url 'modification-employer' n.id %}" class=" btn btn-info"> <i class="fas fa-edit"></i> </a>
+                                        <a href="#" class="btn btn-danger"> <i class="fas fa-trash"></i> </a>
+                                    </td>
+                                  
+                                    {% comment %} <!-- {% url 'modifier' produit.id %} -->
+                                    <!-- {% url 'supprimer' produit.id %} -->
+                                    <!-- <a href="{% url 'detail' produit.id %}" class="btn btn-primary"> <i class="fas fa-edit"></i> </a>  --> {% endcomment %}
+                                                            
+                                </tr>
+                                
+                            </tbody>
+                            {% endfor %}
+                        </table>
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <!-- .col -->
+            <div class="col-md-12 col-lg-8 col-sm-12">
+                <div class="card white-box p-0">
+                    <div class="card-body">
+                        <h3 class="box-title mb-0">Administration OBM</h3>
+                    </div>
+                    <div class="comment-widgets">
+                        <!-- Comment Row -->
+                        <div class="d-flex flex-row comment-row p-3 mt-0">
+                            <div class="p-2"><img src="{% static 'plugins/images/users/varun.jpg' %}" alt="user" width="50" class="rounded-circle"></div>
+                            <div class="comment-text ps-2 ps-md-3 w-100">
+                                <h5 class="font-medium">Nom Et Prénom</h5>
+                                <span class="mb-3 d-block">Fonction </span>
+                            </div>
+                        </div>
+                       
+                       
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+{% endblock contenu %}

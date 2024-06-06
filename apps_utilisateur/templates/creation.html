@@ -1,0 +1,68 @@
+{% extends 'herite.html' %}
+{% load static %}
+
+{% block coprs %}
+<div class="col-lg-6 col-12">
+    <div class="fxt-content">
+        <h2>Création de compte</h2>
+        <div class="fxt-form">
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="form-group">
+                    <div class="fxt-transformY-50 fxt-transition-delay-1">
+                        <input type="text" id="name" class="form-control" name="username" placeholder="Nom d'utilisateur" required="required">
+                        <div class="error">{{ error }}</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="fxt-transformY-50 fxt-transition-delay-1">
+                        <input type="email" id="email" class="form-control" name="email" placeholder="Email" required="required">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="fxt-transformY-50 fxt-transition-delay-2">
+                        <input id="password" type="password" class="form-control" name="password" placeholder="********" required="required">
+                        <!-- <i toggle="#password" class="fa fa-fw fa-eye toggle-password field-icon"></i> -->
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="fxt-transformY-50 fxt-transition-delay-2">
+                        <input id="password" type="password" class="form-control" name="password_confirm" placeholder="********" required="required">
+                        <!-- <i toggle="#password" class="fa fa-fw fa-eye toggle-password field-icon"></i> -->
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="fxt-transformY-50 fxt-transition-delay-3">
+                        <div class="fxt-checkbox-area">
+                            <div class="checkbox">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="fxt-transformY-50 fxt-transition-delay-4">
+                        <button type="submit" class="fxt-btn-fill">Valider</button>
+                    </div>
+                </div>
+            </form>
+            {% if form.errors %}
+        <ul>
+            {% for field in form %}
+                {% for error in field.errors %}
+                    <li>{{ error }}</li>
+                {% endfor %}
+            {% endfor %}
+            {% for error in form.non_field_errors %}
+                <li>{{ error }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+        </div>
+        <div class="fxt-footer">
+            <div class="fxt-transformY-50 fxt-transition-delay-9">
+                <p>Vous avez déjà un compte ?<a href="{% url 'connexion' %}" class="switcher-text2 inline-text">Connectez-vous</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock coprs %}

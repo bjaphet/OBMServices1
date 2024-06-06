@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% block title %}
+OB Multi-Services-Matos
+{% endblock title %}
+
+{% block matos %}
+
+<div class="page-wrapper">
+    <div class="page-breadcrumb bg-white">
+        <div class="row align-items-center">
+            <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                <h4 class="page-title">Tableau de Bord</h4>
+            </div>
+            <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
+                <div class="d-md-flex">
+                    <ol class="breadcrumb ms-auto">
+                        <li><a href="{% url 'affiche-retour-form' %}" class="fw-normal">Retour des matériels</a></li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="white-box">
+                <h3 class="box-title">Matériels de OBM-Revenus</h3>
+                <p class="text-muted">Nettoyage <code>.Informatique</code>  <code>.Sécretariat</code></p>
+                <div class="table-responsive">
+                    <table class="table text-nowrap">
+                        <thead>
+                            <tr>
+                                <tr>
+                                    <th class="border-top-0">ID</th>
+                                    <th class="border-top-0">Nom Du Matériel</th>
+                                    <th class="border-top-0">Quantité</th>
+                                    <th class="border-top-0">Date de Retour</th>
+                                    <th class="border-top-0">Nom de l'agent</th>
+                                    <th class="border-top-0">Categorie</th>
+                                    <th class="border-top-0">Etat Après Sortie</th>
+                                    <th class="border-top-0">Action</th>
+
+                                </tr>
+                            </tr>
+                        </thead>
+                        {% for n in donnees %}
+                    <tbody>
+                        
+                        <tr>
+                            <td> <span class="text-primary">{{n.id}} </span></td>
+                            <td class="txt-oflo">{{n.nomProduits}}</td>
+                            <td><span class="text-success">{{n.quantite}}</span></td>
+                            <td class="txt-oflo">{{n.retour_date}}</td>
+                            <td class="txt-oflo">{{n.agentsAyantretour}}</td>
+                            <td><span class="text-success">{{n.category}}</span></td>
+                            <td><span class="text-success">{{n.etat}}</span></td>
+                            <td>  <a href=" #" class=" btn btn-info"> <i class="fas fa-edit"></i> </a>
+                                <a href="#" class="btn btn-danger"> <i class="fas fa-trash"></i> </a>
+                            </td>
+                        </tr>
+                        
+                    </tbody>
+                    {% endfor %}
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+{% endblock matos %}

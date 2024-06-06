@@ -1,0 +1,61 @@
+
+<aside class="left-sidebar" data-sidebarbg="skin6">
+    <!-- Sidebar scroll-->
+    <div class="scroll-sidebar">
+        <!-- Sidebar navigation-->
+        <nav class="sidebar-nav">
+            <ul id="sidebarnav">
+                <!-- User Profile-->
+                <li class="sidebar-item pt-2">
+                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{% url 'home' %}"
+                        aria-expanded="false">
+                        <i class="far fa-clock" aria-hidden="true"></i>
+                        <span class="hide-menu">Tableau de Bord</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{% url 'affiche-matos' %}"
+                        aria-expanded="false">
+                        <i class="fas fa-bars" aria-hidden="true"></i>
+                        <span class="hide-menu">Liste des matériels</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{% url 'affiche-sortie' %}"
+                        aria-expanded="false">
+                        <i class="fas fa-arrow-alt-circle-right" aria-hidden="true"></i>
+                        <span class="hide-menu">Sortie du Matérieles</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{% url 'affiche-retour' %}"
+                        aria-expanded="false">
+                        <i class="fas fa-arrow-alt-circle-left" aria-hidden="true"></i>
+                        <span class="hide-menu">Retour Des Matériels</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href="blank.html"
+                        aria-expanded="false">
+                        <i class="fa fa-columns" aria-hidden="true"></i>
+                        <span class="hide-menu">Liste de présence</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <!-- <a class="sidebar-link waves-effect waves-dark sidebar-link" href="404.html"
+                        aria-expanded="false">
+                        <i class="fa fa-info-circle" aria-hidden="true"></i>
+                        <span class="hide-menu">Error 404</span>
+                    </a> -->
+                    <a href="{% url 'creation' %}"target="_blank"
+                                class="btn btn-success  d-none d-md-block pull-right ms-3 hidden-xs hidden-sm waves-effect waves-light text-white">
+                                Créez un Compte</a>
+                </li>
+               
+            </ul>
+
+        </nav>
+        <!-- End Sidebar navigation -->
+    </div>
+    <!-- End Sidebar scroll-->
+</aside>

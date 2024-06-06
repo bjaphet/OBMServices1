@@ -1,0 +1,19 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Error 404</title>
+    <link rel="stylesheet" href="{% static 'style404.css' %}">
+</head>
+<body>
+    <div class="error-page">
+        <h1>404</h1>
+        <p>Oops! Une erreur s'est produite .</p>
+        <form action="{% url 'connection' %}" method="get">
+           <button type="submit">Repartir en lui sûr</button> 
+        </form>
+    </div>
+    <script src="{% static 'script.js' %}"></script>
+</body>
+</html>

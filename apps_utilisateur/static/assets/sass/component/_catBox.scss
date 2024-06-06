@@ -1,0 +1,67 @@
+//animationdes boxes
+
+#box2 {
+	animation-delay: 50ms;
+}
+#box3 {
+	animation-delay: 100ms;
+}
+#box4 {
+	animation-delay: 150ms;
+}
+#box5 {
+	animation-delay: 200ms;
+}
+#box6 {
+	animation-delay: 250ms;
+}
+#box7 {
+	animation-delay: 300ms;
+}
+#box8 {
+	animation-delay: 350ms;
+}
+#box9 {
+	animation-delay: 400ms;
+}
+#box10 {
+	animation-delay: 450ms;
+}
+
+@keyframes bounceInDown {
+	0%,
+	60%,
+	75%,
+	90%,
+	100% {
+		-webkit-transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+		transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+	}
+
+	0% {
+		opacity: 0;
+		-webkit-transform: translate3d(0, -3000px, 0);
+		transform: translate3d(0, -3000px, 0);
+	}
+
+	60% {
+		opacity: 1;
+		-webkit-transform: translate3d(0, 25px, 0);
+		transform: translate3d(0, 25px, 0);
+	}
+
+	75% {
+		-webkit-transform: translate3d(0, -10px, 0);
+		transform: translate3d(0, -10px, 0);
+	}
+
+	90% {
+		-webkit-transform: translate3d(0, 5px, 0);
+		transform: translate3d(0, 5px, 0);
+	}
+
+	100% {
+		-webkit-transform: none;
+		transform: none;
+	}
+}

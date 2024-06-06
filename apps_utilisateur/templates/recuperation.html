@@ -1,0 +1,34 @@
+{% extends 'herite.html' %}
+{% load static %}
+
+{% block titre %}
+    Récupération de compte
+{% endblock titre %}
+
+{% block coprs %}
+<div class="col-lg-6">
+    <div class="fxt-content">
+        <h2 style="color: aqua; font-size: x-large; font-family:'Times New Roman', Times, serif;" >Récupération de compte</h2>
+        <div class="fxt-form">
+            <form method="POST">
+                {% csrf_token %}
+                <div class="form-group">
+                    <div class="fxt-transformY-50 fxt-transition-delay-1">
+                        <input type="email" id="email" class="form-control" name="email" placeholder="Email" required="required">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="fxt-transformY-50 fxt-transition-delay-4">
+                        <button type="submit" class="fxt-btn-fill">Envoyez le mail</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="fxt-footer">
+            <div class="fxt-transformY-50 fxt-transition-delay-9">
+                <p>Vous n'avez pas encore de compte?<a href="{% url 'creation' %}" class="switcher-text2 inline-text">Créer</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock coprs %}
